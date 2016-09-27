@@ -1,0 +1,41 @@
+//bootlegMSPAINT
+
+void setup() {
+  size(600, 600);
+  background(255);
+  noStroke();
+  smooth();
+}
+
+void draw() {
+  fill(170, 50, 135);
+  ellipse(20, 50, 40, 40);
+  if (mouseX > 20 && mouseX < 60 && mouseY > 20 && mouseY < 90) {
+    fill(25, 90);
+    ellipse(20, 50, 40, 40);
+  }
+  fill (200, 30, 140);
+  ellipse(20, 80, 40, 40);
+  if (mouseX > 20 && mouseX < 60 && mouseY > 20 && mouseY < 90) {
+    fill(25, 190);
+    ellipse(20, 80, 40, 40);
+  }
+  fill (50, 160, 140);
+  ellipse(20, 110, 40, 40);
+  if (mouseX > 20 && mouseX < 60 && mouseY > 20 && mouseY < 90) {
+    fill(80, 20, 90);
+    ellipse(20, 110, 40, 40);
+  }
+  if (mousePressed) {
+    ellipse(mouseX, mouseY, 5, 5);
+    if (keyPressed) {
+      if (key == '1') { //eraser
+        fill(255);
+        ellipse(mouseX, mouseY, 30, 30);
+      } else if (key == '2') { //clear page
+        fill(255);
+        ellipse(0, 0, 700, 700);
+      }
+    }
+  }
+}
