@@ -1,0 +1,74 @@
+float x;
+float y;
+float angle = 0.0;
+float xOffset;
+float yOffset;
+float scalar = -30;
+float speed = 0.05;
+
+float diameter = 50;
+float radius = diameter/2;
+float xDirection;
+float yDirection;
+
+int timer1 = 4000;
+int timer2 = 9000;
+
+void setup () {
+  size (500,500);
+ 
+  x = width/2;
+  y = height/2;
+  xOffset = width/2;
+  yOffset = height/2;
+  
+}
+
+void draw () {
+  background (100,30,120);
+  
+  //Movement
+  float circX = xOffset + sin(angle) * scalar;
+  float circY = yOffset + cos(angle) * scalar;
+  if (millis() >timer1){
+    xDirection = random (-2, 2);
+    yDirection = random (-2, 2);
+  }else if (millis() > timer2) {
+    if (xDirection<0) {
+      xDirection = -2;
+    }else {
+      xDirection = 2;
+    }
+    if (yDirection<0) {
+      yDirection = -2;
+    }else {
+      yDirection = 2;
+    }
+  }
+  x = x + xDirection;
+  y = y + yDirection;
+  
+  
+  
+  
+  
+  
+  
+  
+  //robot
+  //head
+  fill (200); 
+  ellipse ( 250, 230, 100, 100); 
+  fill (mouseY,mouseX,30);
+  ellipse (circX, 230, 17, 13); 
+  //body 
+  fill (200);
+  ellipse (circX, 350, 200, 200); 
+  //antenna
+  fill (0); 
+  line (250, 185, circY, 156); 
+
+ //movement
+  angle+=speed;
+  
+}
